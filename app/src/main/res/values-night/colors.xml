@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="button_bg">#E167D3A4</color>
+    <color name="button_text_color">@color/black</color>
 </resources>
