@@ -27,13 +27,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:gravity="center"
-            tools:text="Doggo"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/character_image" />
+            app:layout_constraintTop_toBottomOf="@+id/character_image"
+            tools:text="Doggo" />
 
         <TextView
             android:id="@+id/character_gender"
@@ -42,13 +42,13 @@
             android:layout_marginTop="24dp"
             android:drawableTop="@drawable/ic_gender"
             android:gravity="center"
-            tools:text="Male"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/character_species"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/character_name" />
+            app:layout_constraintTop_toBottomOf="@+id/character_name"
+            tools:text="Male" />
 
         <TextView
             android:id="@+id/character_species"
@@ -57,13 +57,13 @@
             android:layout_marginTop="24dp"
             android:drawableTop="@drawable/ic_species"
             android:gravity="center"
-            tools:text="Alien"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/character_gender"
-            app:layout_constraintTop_toBottomOf="@+id/character_name" />
+            app:layout_constraintTop_toBottomOf="@+id/character_name"
+            tools:text="Alien" />
 
         <TextView
             android:id="@+id/character_location"
@@ -72,12 +72,12 @@
             android:layout_marginTop="24dp"
             android:drawableTop="@drawable/ic_map"
             android:gravity="center"
-            tools:text="Mars"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/character_gender"
             app:layout_constraintStart_toStartOf="@+id/character_gender"
-            app:layout_constraintTop_toBottomOf="@+id/character_gender" />
+            app:layout_constraintTop_toBottomOf="@+id/character_gender"
+            tools:text="Mars" />
 
         <TextView
             android:id="@+id/character_star"
@@ -86,12 +86,12 @@
             android:layout_marginTop="24dp"
             android:drawableTop="@drawable/ic_star"
             android:gravity="center"
-            tools:text="5"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/character_species"
             app:layout_constraintStart_toStartOf="@+id/character_species"
-            app:layout_constraintTop_toBottomOf="@+id/character_species" />
+            app:layout_constraintTop_toBottomOf="@+id/character_species"
+            tools:text="5" />
 
         <Button
             android:id="@+id/generate_button"

@@ -1,5 +1,9 @@
 package com.example.rickandmorty
 
+/**
+ * Our data classed that represent the objects which we are getting from an API response
+ */
+
 data class Rick(
     val Id: Int,
     val name: String,
