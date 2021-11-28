@@ -36,10 +36,23 @@
             tools:text="Doggo" />
 
         <TextView
+            android:id="@+id/character_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/character_name"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/character_name"
+            app:layout_constraintTop_toBottomOf="@+id/character_name"
+            tools:text="Alive" />
+
+        <TextView
             android:id="@+id/character_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:drawableTop="@drawable/ic_gender"
             android:gravity="center"
             android:textSize="15sp"
@@ -47,14 +60,14 @@
             app:layout_constraintEnd_toStartOf="@+id/character_species"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/character_name"
+            app:layout_constraintTop_toBottomOf="@+id/character_status"
             tools:text="Male" />
 
         <TextView
             android:id="@+id/character_species"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:drawableTop="@drawable/ic_species"
             android:gravity="center"
             android:textSize="15sp"
@@ -62,7 +75,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/character_gender"
-            app:layout_constraintTop_toBottomOf="@+id/character_name"
+            app:layout_constraintTop_toBottomOf="@+id/character_status"
             tools:text="Alien" />
 
         <TextView

@@ -1,5 +1,6 @@
 package com.example.rickandmorty
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +8,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.rickandmorty.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.lang.Exception
 import kotlin.random.Random
@@ -26,7 +29,12 @@ import kotlin.random.Random
  *
  * Here we are using a [lifecycleScope] which is a predefined coroutine scope which is a
  * lifeCycle-aware coroutine that is created for every object,
- * than means that the scope will be cancelled whenever the lifeCycle is destroyed
+ * than means that the scope will be cancelled whenever the lifeCycle is destroyed.
+ * The lifeCycleScope by nature runs on the main thread or (Main Dispatcher) so it's useful to have
+ * a lifeCycle-aware coroutine and run suspend functions.
+ * For our network call we changed the dispatcher or the thread to run on the IO Dispatchers
+ * which is a useful dispatcher that takes the long running work into a background thread in
+ * order to not block the Main UI.
  */
 
 
@@ -49,7 +57,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launchWhenStarted {
             try {
                 // sending the request and getting the response from the network
-                val response = RetrofitInstance.api.getCharacter(randomId)
+                val response = withContext(Dispatchers.IO) {
+                    RetrofitInstance.api.getCharacter(
+                        randomId
+                    )
+                }
                 if (response.isSuccessful) {
                     // checking if the body of the response is not null
                     // if it is null the .let block will not run
@@ -65,6 +77,20 @@ class MainActivity : AppCompatActivity() {
                             characterLocation.text = character.location.name.replace(" ", "\n")
                             characterSpecies.text = character.species.replace(" ", "\n")
                             characterStar.text = character.episode.count().toString()
+                            when(character.status){
+                                "Alive" -> {
+                                    characterStatus.text = "Alive"
+                                    characterStatus.setTextColor(Color.GREEN)
+                                }
+                                "Dead"->{
+                                    characterStatus.text = "Dead"
+                                    characterStatus.setTextColor(Color.RED)
+                                }
+                                else -> {
+                                    characterStatus.text = "Unknown"
+                                    characterStatus.setTextColor(Color.GRAY)
+                                }
+                            }
                         }
                     }
                 } else {
